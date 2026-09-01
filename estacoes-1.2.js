@@ -213,7 +213,7 @@ export const stations = [
         "name": "Esperança FM",
         "description": "Luz para a vida!",
         "logotipo": "https://esperanca.live/portal/wp-content/uploads/2026/04/logo-esperanca.png",
-        "api": "https://stream03.dghost.com.br:8180/status-json.xsl",
+        "api": "https://stream03.dghost.com.br:8180",
         "historyApi": "",
         "type": "icecast",
         "record": "false",
