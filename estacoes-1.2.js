@@ -24,7 +24,7 @@ export const stations = [
         "bgdefaultArt": "https://assets.radioplayer.org/372/37218/600/600/la2q4l57.png",
         "streams": {
             "high": { "url": "", "format": "Alta qualidade" },
-            "mid": { "url": "https://az11.yesstreaming.net:8300/dublinbrasil.mp3", "format": "Qualidade padrão" },
+            "mid": { "url": "https://az11.yesstreaming.net/listen/dublins_brasil_98.fm_/dublinbrasil.mp3", "format": "Qualidade padrão" },
             "low": { "url": "", "format": "Qualidade Compactada" }
         }
     },
