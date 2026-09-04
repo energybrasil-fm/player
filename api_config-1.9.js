@@ -31,16 +31,13 @@ async function fetchWithTimeout(resource, options = {}) {
 export async function fetchLyrics(title, artist) {
     if (!title || !artist || title === 'Conectando...') return null;
 
-    // Limpeza de tags e strings indesejadas para maximizar o acerto na API
     const cleanTitle = title.replace(/\(.*?\)|\[.*?\]/g, '').split('-')[0].trim(); 
     const cleanArtist = artist.split(/feat\.?|ft\.?|&|,|\svs\.?\s|\sx\s/i)[0].trim();
     
     if (!cleanTitle || !cleanArtist) return null;
 
-    // Cria uma chave única formatada para o cache
     const queryKey = `lyrics_${cleanTitle}_${cleanArtist}`.toLowerCase().replace(/\s+/g, '_');
 
-    // 1. Tenta recuperar as letras armazenadas no LocalStorage
     try {
         const cached = localStorage.getItem(queryKey);
         if (cached) {
@@ -49,7 +46,6 @@ export async function fetchLyrics(title, artist) {
         }
     } catch(e) { console.warn("Erro ao ler cache de letras:", e); }
 
-    // 2. Busca na API LRCLIB com Timeout
     try {
         const url = `https://lrclib.net/api/search?track_name=${encodeURIComponent(cleanTitle)}&artist_name=${encodeURIComponent(cleanArtist)}`;
         const res = await fetchWithTimeout(url, { mode: 'cors', timeout: 5000 });
@@ -142,7 +138,6 @@ async function fetchWithJQueryJSONP(url) {
     });
 }
 
-// SISTEMA CALLBACK JSONP (FALLBACK EXCLUSIVO PARA 100HITZ)
 function fetch100HitzJSONP(url) {
     return new Promise((resolve, reject) => {
         const callbackName = 'jsonp_callback_' + Math.round(1000000 * Math.random());
@@ -228,14 +223,12 @@ export async function fetchItunesData(title, artist) {
     
     const query = `${title} ${artist}`.trim().toLowerCase();
     
-    // Retorna cache existente apenas se foi resolvido com sucesso
     if (itunesCache[query] && !itunesCache[query].error) return itunesCache[query].data;
     
     try {
         const cleanTitle = title.replace(/\(.*?\)|\[.*?\]/g, '').split('-')[0].trim(); 
         const cleanArtist = artist.split(/feat\.?|ft\.?|&|,|\svs\.?\s|\sx\s/i)[0].trim();
         
-        // Mantém letras, números e espaços, remove caracteres que quebram o GET da Apple
         const cleanString = `${cleanTitle} ${cleanArtist}`.replace(/[^\w\s\u00C0-\u017F]/gi, '').trim();
         if (!cleanString) return { art: null, preview: null, link: null }; 
 
@@ -294,7 +287,6 @@ export async function fetchStationData(station) {
         let historyObj = [];
         let listeners = 0;
 
-        // Auto-Discovery: Base URL caso station.api esteja vazio
         let baseUrl = "";
         if (station.streams) {
             const firstValidStream = Object.values(station.streams).find(s => s && s.url && s.url.trim() !== "");
@@ -307,7 +299,7 @@ export async function fetchStationData(station) {
         }
 
         // ==============================================================
-        // 100HITZ / GOTRADIO (Texto Puro / HTML API)
+        // 100HITZ / GOTRADIO
         // ==============================================================
         if (station.type === '100hitz') {
             const targetUrl = (station.api && station.api.trim() !== "") ? station.api : "";
@@ -349,14 +341,14 @@ export async function fetchStationData(station) {
             }
         } 
         // ==============================================================
-        // SHOUTCAST (Direciona a partir do IP:Porta informado em station.api)
+        // SHOUTCAST (Histórico extraído via IP:Porta com /played.html)
         // ==============================================================
         else if (station.type === 'shoutcast') {
             const targetBase = (station.api && station.api.trim() !== "") ? station.api.replace(/\/$/, '') : baseUrl;
             let sid = 1; 
             
+            // 1. Obter Status Atual
             try {
-                // Tenta V2 nativo JSONP (bypassa CORS sem Proxy)
                 const statsUrl = `${targetBase}/stats?sid=${sid}&json=1`;
                 const scData = await fetchWithJQueryJSONP(statsUrl);
                 
@@ -370,29 +362,11 @@ export async function fetchStationData(station) {
                     extTitle = parts.slice(1).join(' - ').trim(); 
                 }
                 songObj = { title: extTitle, artist: extArtist, art: station.defaultArt };
-
-                try {
-                    const histUrl = `${targetBase}/played?sid=${sid}&type=json`;
-                    const scHist = await fetchWithJQueryJSONP(histUrl);
-                    if (Array.isArray(scHist)) {
-                        historyObj = scHist.map(item => {
-                            let hArtist = ''; let hTitle = item.title || '';
-                            if (hTitle.includes(' - ')) { 
-                                const parts = hTitle.split(' - '); 
-                                hArtist = parts[0].trim(); 
-                                hTitle = parts.slice(1).join(' - ').trim(); 
-                            }
-                            return { song: { title: hTitle, artist: hArtist }, timestamp: item.playedat || null };
-                        });
-                    }
-                } catch(e) {}
-                
             } catch(errV2) {
-                // Tenta V1 (7.html) e History (played.html)
+                // Fallback de Status para V1
                 try {
                     const v1Url = `${targetBase}/7.html`;
                     const v1Resp = await fetchWithJQueryAjaxText(v1Url);
-                    
                     if (v1Resp) {
                         const parts = v1Resp.replace(/<[^>]*>?/gm, '').split(',');
                         if (parts.length >= 7) {
@@ -407,32 +381,64 @@ export async function fetchStationData(station) {
                             songObj = { title: extTitle, artist: extArtist, art: station.defaultArt };
                         }
                     }
-                    
-                    try {
-                        const v1HistUrl = `${targetBase}/played.html`;
-                        const v1HistResp = await fetchWithJQueryAjaxText(v1HistUrl);
-                        if (v1HistResp) {
-                            const regex = /<tr><td>(.*?)<\/td><td>(.*?)<\/td><\/tr>/g;
-                            let match;
-                            while ((match = regex.exec(v1HistResp)) !== null) {
-                                let hTitleRaw = match[2].replace(/<[^>]*>?/gm, '').trim();
-                                if (hTitleRaw && !hTitleRaw.toLowerCase().includes('current song')) {
-                                    let hArtist = ''; let hTitle = hTitleRaw;
-                                    if (hTitleRaw.includes(' - ')) { 
-                                        const p = hTitleRaw.split(' - '); 
-                                        hArtist = p[0].trim(); 
-                                        hTitle = p.slice(1).join(' - ').trim(); 
-                                    }
-                                    historyObj.push({ song: { title: hTitle, artist: hArtist }, timestamp: null });
+                } catch(errV1) {}
+            }
+
+            // 2. Obter Histórico via /played.html diretamente do station.api
+            try {
+                // Tentativa via JSON nativo
+                const histUrl = `${targetBase}/played?sid=${sid}&type=json`;
+                const scHist = await fetchWithJQueryJSONP(histUrl);
+                if (Array.isArray(scHist) && scHist.length > 0) {
+                    historyObj = scHist.map(item => {
+                        let hArtist = ''; let hTitle = item.title || '';
+                        if (hTitle.includes(' - ')) { 
+                            const parts = hTitle.split(' - '); 
+                            hArtist = parts[0].trim(); 
+                            hTitle = parts.slice(1).join(' - ').trim(); 
+                        }
+                        return { song: { title: hTitle, artist: hArtist }, timestamp: item.playedat || null };
+                    });
+                } else {
+                    throw new Error("JSONP vazio"); // Força o fallback para o HTML
+                }
+            } catch (jsonErr) {
+                // Fallback Extraindo diretamente o HTML do Servidor via jQuery
+                try {
+                    const v1HistUrl = `${targetBase}/played.html`;
+                    const v1HistResp = await fetchWithJQueryAjaxText(v1HistUrl);
+                    if (v1HistResp) {
+                        // Regex extrai Time e Song Title da tabela do Shoutcast
+                        const regex = /<tr>\s*<td[^>]*>(.*?)<\/td>\s*<td>(.*?)<\/td>\s*<\/tr>/gi;
+                        let match;
+                        let htmlHistory = [];
+
+                        while ((match = regex.exec(v1HistResp)) !== null) {
+                            let hTitleRaw = match[2].replace(/<[^>]*>?/gm, '').trim();
+
+                            // Ignora cabeçalhos ("Song Title") e música atual ("Current Song")
+                            if (hTitleRaw && !hTitleRaw.toLowerCase().includes('song title') && !hTitleRaw.toLowerCase().includes('current song')) {
+                                let hArtist = ''; let hTitle = hTitleRaw;
+                                if (hTitleRaw.includes(' - ')) { 
+                                    const p = hTitleRaw.split(' - '); 
+                                    hArtist = p[0].trim(); 
+                                    hTitle = p.slice(1).join(' - ').trim(); 
                                 }
+                                htmlHistory.push({ song: { title: hTitle, artist: hArtist }, timestamp: null });
                             }
                         }
-                    } catch(e) {}
-                } catch(errV1) {}
+
+                        if (htmlHistory.length > 0) {
+                            historyObj = htmlHistory;
+                        }
+                    }
+                } catch(htmlErr) {
+                    console.warn("Falha ao extrair /played.html do Shoutcast:", htmlErr.message);
+                }
             }
         } 
         // ==============================================================
-        // ICECAST (Direciona a partir do IP:Porta informado em station.api)
+        // ICECAST 
         // ==============================================================
         else if (station.type === 'icecast') {
             const targetBase = (station.api && station.api.trim() !== "") ? station.api.replace(/\/$/, '') : baseUrl;
@@ -474,7 +480,7 @@ export async function fetchStationData(station) {
             } catch (e) {}
         }
         // ==============================================================
-        // DEMAIS APIS JSON NATIYAS (Azuracast, JamFM, NRJ, EHR, FFH, etc)
+        // DEMAIS APIS JSON NATIYAS 
         // ==============================================================
         else {
             if (!station.api || station.api.trim() === "") return { songObj: null, historyObj: [], listeners: 0 };
