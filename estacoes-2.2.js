@@ -18,7 +18,7 @@ export const stations = [
         "type": "shoutcast",
         "record": "true",
         "intro": "https://wisebuddahjingles.com/media/14208/lo.mp3", // jingle
-        "limitHistory": 10,
+        "limitHistory": 20,
         "contact": "https://wa.me/559191930858?text=Olá,%20preciso%20de%20atendimento!",
         "visualizer": "true",
         "defaultArt": "https://assets.radioplayer.org/372/37218/600/600/la2q4l57.png",
