@@ -22,7 +22,7 @@ export const stations = [
         "contact": "https://wa.me/559191930858?text=Olá,%20preciso%20de%20atendimento!",
         "visualizer": "true",
         "defaultArt": "https://energybrasil.xtgem.com/app_web.jpg",
-        "bgdefaultArt": "http://energybrasil.xtgem.com/app_web.jpg",
+        "bgdefaultArt": "https://energybrasil.xtgem.com/app_web.jpg",
         "streams": {
             "high": { "url": "", "format": "Alta qualidade" },
             "mid": { "url": "https://az11.yesstreaming.net/listen/dublins_brasil_98fm/dublinbrasil.mp3", "format": "Qualidade padrão" },
