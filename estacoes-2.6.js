@@ -17,7 +17,7 @@ export const stations = [
         "historyApi": "",
         "type": "shoutcast",
         "record": "true",
-        "intro": "https://wisebuddahjingles.com/media/14208/lo.mp3", // jingle
+        "intro": "https://wisebuddahjingles.com/media/9888/lo.mp3", // jingle
         "limitHistory": 20,
         "contact": "https://wa.me/559191930858?text=Olá,%20preciso%20de%20atendimento!",
         "visualizer": "true",
