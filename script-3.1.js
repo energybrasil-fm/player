@@ -1,5 +1,5 @@
-import { stations } from './estacoes-2.3.js';
-        import { updateIntervalTime, isValidTrack, fetchItunesData, fetchStationData, fetchLyrics } from './api_config-1.9.js';
+import { stations } from './estacoes-2.5.js';
+        import { updateIntervalTime, isValidTrack, fetchItunesData, fetchStationData, fetchLyrics } from './api_config-2.0.js';
 
 // ==========================================
 // DECLARAÇÃO DE ELEMENTOS DOM E VARIÁVEIS
