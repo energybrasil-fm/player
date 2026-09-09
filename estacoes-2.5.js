@@ -34,9 +34,9 @@ export const stations = [
         "name": "Dublin's 98 FM",
         "description": "Dublin's Best Music Mix",
         "logotipo": "https://www.98fm.com/images/red-logo.svg",
-        "api": "",
+        "api": "https://api.instant.audio/data/playlist/97/98fm",
         "historyApi": "",
-        "type": "shoutcast",
+        "type": "instant",
         "record": "true",
         "intro": "https://wisebuddahjingles.com/media/14208/lo.mp3", // jingle
         "limitHistory": 20,
@@ -45,8 +45,8 @@ export const stations = [
         "defaultArt": "https://media.radiocms.net/uploads/2023/01/25105148/98FM_Web-Image-98FM-DBMM.png",
         "bgdefaultArt": "https://media.radiocms.net/uploads/2023/01/25105148/98FM_Web-Image-98FM-DBMM.png",
         "streams": {
-            "high": { "url": "", "format": "Alta qualidade" },
-            "mid": { "url": "https://live-bauerie.sharp-stream.com/98?aw_0_1st.playerId=BMIE_GoLoudWeb&aw_0_1st.premium=false", "format": "Qualidade padrão" },
+            "high": { "url": "https://live-bauerie.sharp-stream.com/98", "format": "Alta qualidade" },
+            "mid": { "url": "", "format": "Qualidade padrão" },
             "low": { "url": "", "format": "Qualidade Compactada" }
         }
     } 
