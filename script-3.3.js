@@ -227,7 +227,7 @@ window.showListenerToast = function(type, totalListeners) {
     window.showGenericToast(
         titleText, 
         descText, 
-        isConnect ? 'bi-person-check-fill' : 'bi-person-dash-fill', 
+        isConnect ? 'bi bi-person-plus-fill' : 'bi-person-dash-fill', 
         isConnect ? '#4ade80' : '#f43f5e'
     );
 };
