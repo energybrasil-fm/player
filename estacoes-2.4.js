@@ -28,5 +28,26 @@ export const stations = [
             "mid": { "url": "https://az11.yesstreaming.net/listen/dublins_brasil_98fm/dublinbrasil.mp3", "format": "Qualidade padrão" },
             "low": { "url": "https://az11.yesstreaming.net/listen/dublins_brasil_98fm/dublinbrasil_mobile.aac", "format": "Qualidade Compactada" }
         }
+    },
+    {
+        "id": "Dublin's_98fm",
+        "name": "Dublin's 98 FM",
+        "description": "Dublin's Best Music Mix",
+        "logotipo": "https://www.98fm.com/images/red-logo.svg",
+        "api": "",
+        "historyApi": "",
+        "type": "shoutcast",
+        "record": "true",
+        "intro": "https://wisebuddahjingles.com/media/14208/lo.mp3", // jingle
+        "limitHistory": 20,
+        "contact": "https://wa.me/559191930858?text=Olá,%20preciso%20de%20atendimento!",
+        "visualizer": "true",
+        "defaultArt": "https://media.radiocms.net/uploads/2023/01/25105148/98FM_Web-Image-98FM-DBMM.png",
+        "bgdefaultArt": "https://media.radiocms.net/uploads/2023/01/25105148/98FM_Web-Image-98FM-DBMM.png",
+        "streams": {
+            "high": { "url": "", "format": "Alta qualidade" },
+            "mid": { "url": "https://live-bauerie.sharp-stream.com/98?aw_0_1st.playerId=BMIE_GoLoudWeb&aw_0_1st.premium=false", "format": "Qualidade padrão" },
+            "low": { "url": "", "format": "Qualidade Compactada" }
+        }
     } 
 ];
