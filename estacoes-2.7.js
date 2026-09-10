@@ -10,7 +10,7 @@
 export const stations = [
     {
         "id": "Dublin's_brasil",
-        "name": "Dublin's Brasil 98 FM",
+        "name": "Belém 98 FM",
         "description": "O Top 40 do Brasil e do mundo",
         "logotipo": "https://www.98fm.com/images/red-logo.svg",
         "api": "https://az11.yesstreaming.net:8300",
