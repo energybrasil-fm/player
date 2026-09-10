@@ -1,4 +1,4 @@
-import { stations } from './estacoes-2.6.js';
+import { stations } from './estacoes-2.7.js';
         import { updateIntervalTime, isValidTrack, fetchItunesData, fetchStationData, fetchLyrics } from './api_config-2.0.js';
 
 // ==========================================
@@ -344,7 +344,7 @@ function stopAndDiscardRecording() {
     recordController = null;
     const recordBtn = document.getElementById('recordBtn');
     if(recordBtn) {
-        recordBtn.innerHTML = '<i class="bi bi-record-circle"></i> Gravar Stream';
+        recordBtn.innerHTML = '<i class="bi bi-record-circle"></i> Gravar';
     }
 }
 
