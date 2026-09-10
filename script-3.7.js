@@ -1,4 +1,4 @@
-import { stations } from './estacoes-2.7.js';
+import { stations } from './estacoes-2.8.js';
         import { updateIntervalTime, isValidTrack, fetchItunesData, fetchStationData, fetchLyrics } from './api_config-2.0.js';
 
 // ==========================================
