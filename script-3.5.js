@@ -51,7 +51,7 @@ let adsLoader;
 let adsManager;
 let prerollPlayed = false;
 
-const VAST_TAG_URL = 'https://bid.onclckstr.com/vast?spot_id=6126862';
+const VAST_TAG_URL = 'https://bid.onclckstr.com/vast?spot_id=612686*2=false';
 
 function initIMA() {
     if (typeof google === 'undefined' || !google.ima) return; 
