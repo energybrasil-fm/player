@@ -21,6 +21,7 @@ export const stations = [
         "limitHistory": 20,
         "contact": "https://wa.me/559191930858?text=Olá,%20preciso%20de%20atendimento!",
         "visualizer": "true",
+        "equalizador": "true",
         "defaultArt": "https://energybrasil.xtgem.com/icones/belem-98fm.jpg",
         "bgdefaultArt": "https://energybrasil.xtgem.com/icones/belem-98fm.jpg",
         "streams": {
@@ -42,6 +43,7 @@ export const stations = [
         "limitHistory": 20,
         "contact": "https://wa.me/559191930858?text=Olá,%20preciso%20de%20atendimento!",
         "visualizer": "true",
+        "equalizador": "false",
         "defaultArt": "https://media.radiocms.net/uploads/2023/01/25105148/98FM_Web-Image-98FM-DBMM.png",
         "bgdefaultArt": "https://media.radiocms.net/uploads/2023/01/25105148/98FM_Web-Image-98FM-DBMM.png",
         "streams": {
