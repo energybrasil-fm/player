@@ -25,9 +25,9 @@ export const stations = [
         "defaultArt": "https://energybrasil.xtgem.com/icones/belem-98fm.jpg",
         "bgdefaultArt": "https://energybrasil.xtgem.com/icones/belem-98fm.jpg",
         "streams": {
-            "high": { "url": "", "format": "Alta qualidade" },
-            "mid": { "url": "https://az11.yesstreaming.net/listen/dublins_brasil_98fm/dublinbrasil.mp3", "format": "Qualidade padrão" },
-            "low": { "url": "https://az11.yesstreaming.net/listen/dublins_brasil_98fm/dublinbrasil_mobile.aac", "format": "Qualidade Compactada" }
+            "high": { "url": "https://az11.yesstreaming.net/listen/dublins_brasil_98fm/dublinbrasil.mp3", "format": "Alta qualidade" },
+            "mid": { "url": "https://az11.yesstreaming.net/listen/dublins_brasil_98fm/dublinbrasil_mobile.aac", "format": "Qualidade padrão" },
+            "low": { "url": "", "format": "Qualidade Compactada" }
         }
     },
     {
