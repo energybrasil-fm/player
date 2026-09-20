@@ -25,9 +25,9 @@ export const stations = [
         "defaultArt": "https://img.wapka.org/00g5sh.jpg",
         "bgdefaultArt": "https://img.wapka.org/00g5sh.jpg",
         "streams": {
-            "high": { "url": "", "format": "Alta qualidade" },
-            "mid": { "url": "https://az11.yesstreaming.net/listen/energy_brasil_98fm/dublinbrasil.mp3", "format": "Qualidade padrão" },
-            "low": { "url": "https://az11.yesstreaming.net/listen/energy_brasil_98fm/dublinbrasil_mobile.aac", "format": "Qualidade Compactada" }
+            "high": { "url": "https://az11.yesstreaming.net/listen/energy_brasil_98fm/nrjbrasil_128kbps.mp3", "format": "Alta qualidade" },
+            "mid": { "url": "https://az11.yesstreaming.net/listen/energy_brasil_98fm/nrjbrasil_32kbps.mp3", "format": "Qualidade padrão" },
+            "low": { "url": "", "format": "Qualidade Compactada" }
         }
     },
     {
