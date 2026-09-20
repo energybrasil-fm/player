@@ -9,25 +9,25 @@
 
 export const stations = [
     {
-        "id": "Dublin's_brasil",
-        "name": "Belém 98 FM",
-        "description": "O Top 40 do Brasil e do mundo",
-        "logotipo": "https://www.98fm.com/images/red-logo.svg",
+        "id": "Energy_brasil",
+        "name": "Energy Brasil 98.FM",
+        "description": "A sua Top 40",
+        "logotipo": "https://img.wapka.org/00g5sk.jpg",
         "api": "https://az11.yesstreaming.net:8300",
         "historyApi": "",
         "type": "shoutcast",
-        "record": "true",
-        "intro": "https://wisebuddahjingles.com/media/9888/lo.mp3", // jingle
+        "record": "false",
+        "intro": "https://cdn.wapka.org/00hkls/d69ae67ce2af62284bcfc9d8fc6cecd5/98-fm10.mp3", // jingle
         "limitHistory": 20,
         "contact": "https://wa.me/559191930858?text=Olá,%20preciso%20de%20atendimento!",
         "visualizer": "true",
         "equalizador": "true",
-        "defaultArt": "https://energybrasil.xtgem.com/icones/belem-98fm.jpg",
-        "bgdefaultArt": "https://energybrasil.xtgem.com/icones/belem-98fm.jpg",
+        "defaultArt": "https://img.wapka.org/00g5sh.jpg",
+        "bgdefaultArt": "https://img.wapka.org/00g5sh.jpg",
         "streams": {
-            "high": { "url": "https://az11.yesstreaming.net/listen/dublins_brasil_98fm/dublinbrasil.mp3", "format": "Alta qualidade" },
-            "mid": { "url": "https://az11.yesstreaming.net/listen/dublins_brasil_98fm/dublinbrasil_mobile.aac", "format": "Qualidade padrão" },
-            "low": { "url": "", "format": "Qualidade Compactada" }
+            "high": { "url": "", "format": "Alta qualidade" },
+            "mid": { "url": "https://az11.yesstreaming.net/listen/energy_brasil_98fm/dublinbrasil.mp3", "format": "Qualidade padrão" },
+            "low": { "url": "https://az11.yesstreaming.net/listen/energy_brasil_98fm/dublinbrasil_mobile.aac", "format": "Qualidade Compactada" }
         }
     },
     {
