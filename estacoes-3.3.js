@@ -16,7 +16,7 @@ export const stations = [
         "api": "https://az11.yesstreaming.net:8300",
         "historyApi": "",
         "type": "shoutcast",
-        "record": "false",
+        "record": "true",
         "intro": "https://cdn.wapka.org/00hkls/d69ae67ce2af62284bcfc9d8fc6cecd5/98-fm10.mp3", // jingle
         "limitHistory": 20,
         "contact": "https://wa.me/559191930858?text=Olá,%20preciso%20de%20atendimento!",
