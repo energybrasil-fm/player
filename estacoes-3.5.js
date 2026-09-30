@@ -13,9 +13,9 @@ export const stations = [
         "name": "Energy Brasil 98.FM",
         "description": "A sua Top 40",
         "logotipo": "https://energybrasil.xtgem.com/energy_brasil/logo.png",
-        "api": "https://az11.yesstreaming.net:8300",
+        "api": "https://az11.yesstreaming.net/api/nowplaying/energy_brasil_98fm",
         "historyApi": "",
-        "type": "shoutcast",
+        "type": "azuracast",
         "record": "true",
         "intro": "https://cdn.wapka.org/00hkls/d69ae67ce2af62284bcfc9d8fc6cecd5/98-fm10.mp3", // jingle
         "limitHistory": 20,
