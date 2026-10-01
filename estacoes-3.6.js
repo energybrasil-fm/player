@@ -29,27 +29,5 @@ export const stations = [
             "mid": { "url": "https://az11.yesstreaming.net/listen/energy_brasil_98fm/nrjbrasil_32kbps.mp3", "format": "Qualidade padrão" },
             "low": { "url": "", "format": "Qualidade Compactada" }
         }
-    },
-    {
-        "id": "Dublin's_98fm",
-        "name": "Dublin's 98 FM",
-        "description": "Dublin's Best Music Mix",
-        "logotipo": "https://www.98fm.com/images/red-logo.svg",
-        "api": "https://api.instant.audio/data/playlist/97/98fm",
-        "historyApi": "",
-        "type": "instant",
-        "record": "true",
-        "intro": "https://wisebuddahjingles.com/media/14208/lo.mp3", // jingle
-        "limitHistory": 20,
-        "contact": "https://wa.me/559191930858?text=Olá,%20preciso%20de%20atendimento!",
-        "visualizer": "true",
-        "equalizador": "false",
-        "defaultArt": "https://energybrasil.xtgem.com/energy_brasil/dublins.jpg",
-        "bgdefaultArt": "https://energybrasil.xtgem.com/energy_brasil/dublins.jpg",
-        "streams": {
-            "high": { "url": "https://live-bauerie.sharp-stream.com/98", "format": "Alta qualidade" },
-            "mid": { "url": "", "format": "Qualidade padrão" },
-            "low": { "url": "", "format": "Qualidade Compactada" }
-        }
-    } 
+    }
 ];
