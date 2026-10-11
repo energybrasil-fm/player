@@ -25,9 +25,9 @@ export const stations = [
         "defaultArt": "https://cdn.jsdelivr.net/gh/energybrasil-fm/player/cover(3).png",
         "bgdefaultArt": "https://cdn.jsdelivr.net/gh/energybrasil-fm/player/cover(3).png",
         "streams": {
-            "high": { "url": "https://az11.yesstreaming.net/listen/energy_brasil_98fm/nrjbrasil_128kbps.mp3", "format": "Alta qualidade" },
-            "mid": { "url": "https://az11.yesstreaming.net/listen/energy_brasil_98fm/nrjbrasil_32kbps.mp3", "format": "Qualidade padrão" },
-            "low": { "url": "", "format": "Qualidade Compactada" }
+            "high": { "url": "", "format": "Alta qualidade" },
+            "mid": { "url": "https://az11.yesstreaming.net/listen/energy_brasil_98fm/nrjbrasil_128kbps.mp3", "format": "Qualidade padrão" },
+            "low": { "url": "https://az11.yesstreaming.net/listen/energy_brasil_98fm/nrjbrasil_32kbps.mp3", "format": "Qualidade Compactada" }
         }
     }
 ];
