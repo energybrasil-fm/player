@@ -1,5 +1,5 @@
-import { stations } from './estacoes.js';
-import { updateIntervalTime, isValidTrack, fetchItunesData, fetchStationData, fetchLyrics } from './api_config.js';
+import { stations } from './estacoes-4.1.js';
+import { updateIntervalTime, isValidTrack, fetchItunesData, fetchStationData, fetchLyrics } from './api_config-2.2.js';
 
 // IMPORTAÇÃO DOS COMPONENTES (Color Thief, Ads, Audio, EQ/Visualizer)
 import { 
