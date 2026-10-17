@@ -12,7 +12,7 @@ import {
     routeAudioGraph,
     stopAndClearAudio,
     visualizerActive 
-} from './component.js';
+} from './component-1.0.js';
 
 if (!stations || stations.length === 0) {
     console.error("Nenhuma estação encontrada!");
